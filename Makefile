@@ -1,4 +1,4 @@
-CC = cc
+CC = /opt/cosmo/tool/scripts/cosmocc
 CFLAGS = -Wall -O2
 LDFLAGS =
 
@@ -13,5 +13,6 @@ conf.o: conf.h
 	$(CC) -c $(CFLAGS) $<
 vi: $(OBJS)
 	$(CC) -o $@ $(OBJS) $(LDFLAGS)
+	objcopy -S -O binary $@ $@.com
 clean:
-	rm -f *.o vi
+	rm -f *.o vi vi.com
